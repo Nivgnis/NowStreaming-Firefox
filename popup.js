@@ -239,9 +239,9 @@ function updateTable() {
 				$("#streamersTableDiv").show();
 				$("#streamersTable").show();
 				if (nstreams % 2 == 0)
-					$("#streamersTable").append("<tr class=\" list-row table-even\" id=\"row"+sanitize(streamers[key][0])+"\"><td nowrap><i title=\"Popout this stream\" class=\"masterTooltip popout fas fa-share-square fa-lg\"></i><a title=\""+sanitize(streamers[key][1]["title"])+"\" class=\"streamerpage masterTooltip\" href=\""+sanitize(streamers[key][1]["url"], defaultpage+key)+"\" target=\"_blank\">"+sanitize(streamers[key][0])+"</a></td><td><img src=\""+loadIcon(streamers[key][1]["game"])+"\" title=\""+sanitize(streamers[key][1]["game"])+"\" class=\"masterTooltip\" width=\"30\" height=\"30\"/></td><td><span class=\"viewersclass\">"+streamers[key][1]["viewers"]+"</span></td><td nowrap><span class=\"uptimeclass\">"+getUptime(streamers[key][1]["created_at"])+"</span></td></tr>");
+					$("#streamersTable").append("<tr class=\" list-row table-even\" id=\"row"+sanitize(streamers[key][0])+"\"><td nowrap><i title=\"Popout this stream\" class=\"masterTooltip popout fas fa-share-square fa-lg\"></i><a title=\""+sanitize(streamers[key][1]["title"])+"\" class=\"streamerpage masterTooltip\" href=\""+sanitize(streamers[key][1]["url"], defaultpage+key)+"\" target=\"_blank\">"+sanitize(streamers[key][0])+"</a></td><td>"+loadIcon(streamers[key][1]["game"])+"</td><td><span class=\"viewersclass\">"+streamers[key][1]["viewers"]+"</span></td><td nowrap><span class=\"uptimeclass\">"+getUptime(streamers[key][1]["created_at"])+"</span></td></tr>");
 				else
-					$("#streamersTable").append("<tr class=\" list-row table-odd\" id=\"row"+sanitize(streamers[key][0])+"\"><td nowrap><i title=\"Popout this stream\" class=\"masterTooltip popout fas fa-share-square fa-lg\"></i><a title=\""+sanitize(streamers[key][1]["title"])+"\" class=\"streamerpage masterTooltip\" href=\""+sanitize(streamers[key][1]["url"], defaultpage+key)+"\" target=\"_blank\">"+sanitize(streamers[key][0])+"</a></td><td><img src=\""+loadIcon(streamers[key][1]["game"])+"\" title=\""+sanitize(streamers[key][1]["game"])+"\" class=\"masterTooltip\" width=\"30\" height=\"30\"/></td><td><span class=\"viewersclass\">"+streamers[key][1]["viewers"]+"</span></td><td nowrap><span class=\"uptimeclass\">"+getUptime(streamers[key][1]["created_at"])+"</span></td></tr>");
+					$("#streamersTable").append("<tr class=\" list-row table-odd\" id=\"row"+sanitize(streamers[key][0])+"\"><td nowrap><i title=\"Popout this stream\" class=\"masterTooltip popout fas fa-share-square fa-lg\"></i><a title=\""+sanitize(streamers[key][1]["title"])+"\" class=\"streamerpage masterTooltip\" href=\""+sanitize(streamers[key][1]["url"], defaultpage+key)+"\" target=\"_blank\">"+sanitize(streamers[key][0])+"</a></td><td>"+loadIcon(streamers[key][1]["game"])+"</td><td><span class=\"viewersclass\">"+streamers[key][1]["viewers"]+"</span></td><td nowrap><span class=\"uptimeclass\">"+getUptime(streamers[key][1]["created_at"])+"</span></td></tr>");
 			}
 		}
 		$("#streamersTable").append("</tbody>");
@@ -632,13 +632,118 @@ function unfollowAll(){
 
 // Dirty, I know. But hey, it works and it's fast
 function loadIcon(game) {
-	var allowedIcons = ["amongus.png", "apexlegends.png", "archeage.png", "asmr.png", "balatro.png", "battlefield3.png", "battlefield4.png", "callofdutyblackopsii.png", "callofdutyghosts.png", "chess.png", "counter-strikeglobaloffensive.png", "darksoulsii.png", "dayz.png", "destiny.png", "diabloiii.png", "diabloiiireaperofsouls.png", "don'tstarve.png", "dota2.png", "eldenring.png", "evolve.png", "escapefromtarkov.png", "justchatting.png", "fortnite.png", "finalfantasyxivonline.png", "garry'smod.png", "grandtheftautov.png", "guildwars2.png", "h1z1justsurvive.png", "h1z1kingofthekill.png", "hearthstone.png", "heroesofthestorm.png", "hades.png", "leagueoflegends.png", "left4dead2.png", "lostark.png", "lethalleague.png", "lifeisfeudalyourown.png", "magicthegathering.png", "mariokart8.png", "mariokart8deluxe.png", "marvelsnap.png", "newworld.png", "middle-earthshadowofmordor.png", "minecraft.png", "music.png", "osu!.png", "outlast.png", "overwatch.png", "pathofexile.png", "payday2.png", "playerunknown'sbattlegrounds.png", "poker.png", "rift.png", "rocketleague.png", "runescape.png", "rust.png", "slaythespire.png", "smite.png", "starcraftii.png", "supermario64.png", "supermarioworld.png", "thebindingofisaac.png", "thebindingofisaacrebirth.png", "thebindingofisaacrepentance.png", "supersmashbros.ultimate.png", "supersmashbros.melee.png", "callofdutywarzone.png", "bloodborne.png", "projectzomboid.png", "theelderscrollsvskyrim.png", "theevilwithin.png", "thesims4.png", "vrchat.png", "valorant.png", "teamfighttactics.png", "deadbydaylight.png", "thewalkingdead.png", "warframe.png", "wildstar.png", "worldoftanks.png", "worldofwarcraft.png"];
+
+	var allowedIcons = [
+        "10deaddoves.png",
+        "amongus.png",
+        "apexlegends.png",
+        "archeage.png",
+        "art.png",
+        "asmr.png",
+        "balatro.png",
+        "battlefield3.png",
+        "battlefield4.png",
+        "baldur'sgate3.png",
+        "bloodborne.png",
+        "callofdutyblackopsii.png",
+        "callofdutyghosts.png",
+        "callofdutywarzone.png",
+        "chess.png",
+        "counter-strikeglobaloffensive.png",
+        "darksoulsii.png",
+        "dayz.png",
+        "deadbydaylight.png",
+        "destiny.png",
+        "diabloiii.png",
+        "diabloiiireaperofsouls.png",
+        "don'tstarve.png",
+        "dota2.png",
+        "eldenring.png",
+        "enterthegungeon.png",
+        "escapefromtarkov.png",
+        "evolve.png",
+        "fieldsofmistria.png",
+        "finalfantasyxivonline.png",
+        "fortnite.png",
+        "games+demos.png",
+        "garry'smod.png",
+        "grandtheftautov.png",
+        "guildwars2.png",
+        "h1z1justsurvive.png",
+        "h1z1kingofthekill.png",
+        "hades.png",
+        "hearthstone.png",
+        "heroesofthestorm.png",
+        "infinitynikki.png",
+        "inscryption.png",
+        "justchatting.png",
+        "leagueoflegends.png",
+        "left4dead2.png",
+        "lethalleague.png",
+        "lifeisfeudalyourown.png",
+        "lostark.png",
+        "magicthegathering.png",
+        "mariokart8.png",
+        "mariokart8deluxe.png",
+        "marvelrivals.png",
+        "marvelsnap.png",
+        "middle-earthshadowofmordor.png",
+        "minecraft.png",
+        "music.png",
+        "newworld.png",
+        "nunholy.png",
+        "osu!.png",
+        "outlast.png",
+        "overwatch.png",
+        "overwatch2.png",
+        "pathofexile.png",
+        "payday2.png",
+        "playerunknown'sbattlegrounds.png",
+        "poker.png",
+        "projectzomboid.png",
+        "retro.png",
+        "rift.png",
+        "rocketleague.png",
+        "runescape.png",
+        "rust.png",
+        "signalis.png",
+        "slaythespire.png",
+        "smite.png",
+        "spacestation13.png",
+        "starcraftii.png",
+        "stardewvalley.png",
+        "steins;gate.png",
+        "steins;gate0.png",
+        "supermario64.png",
+        "supermarioworld.png",
+        "supersmashbros.melee.png",
+        "supersmashbros.ultimate.png",
+        "teamfighttactics.png",
+        "thebindingofisaac.png",
+        "thebindingofisaacrebirth.png",
+        "thebindingofisaacrepentance.png",
+        "theelderscrollsvskyrim.png",
+        "theevilwithin.png",
+        "thesims4.png",
+        "thewalkingdead.png",
+        "valorant.png",
+        "voicesofthevoid.png",
+        "vrchat.png",
+        "warframe.png",
+        "wildstar.png",
+        "worldoftanks.png",
+        "worldofwarcraft.png"
+    ];
+
 	var generatedIcon = game.replace(/\:| /g,'').toLowerCase()+".png";
 
 	if (allowedIcons.includes(generatedIcon))
-		return "gameicons/"+generatedIcon;
+		//return "gameicons/"+generatedIcon;
+    
+        return "<img src=\"gameicons/" + generatedIcon + "\" title=\"" + game.replace(/\:| /g,'').toLowerCase() + "\" class=\"masterTooltip\" width=\"30\" height=\"30\"/>";
+
 	else
-		return "icon.png";
+		return "<span class=\"masterTooltip\" width=\"30\" height=\"30\">" + game.replace(/\:| /g,'').toLowerCase() + "</span>";
 }
 
 function onForceUpdate(){
