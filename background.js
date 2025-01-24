@@ -345,7 +345,7 @@ function updateCore(is_first_run,callback) {
                                         var opt = {
                                             type: "basic",
                                             title: "Live: " + json.data[i].user_name,
-                                            message: "Game: " + (json.data[i].game_name != null ? json.data[i].game_name : "N/A") + "\n" + "Viewers: " + json.data[i].viewer_count,
+                                            message: "Game: " + (json.data[i].game_name != null ? json.data[i].game_name : "N/A") + "\n" + "Title: " + json.data[i].title,
                                             contextMessage: "Click to watch the stream",
                                             isClickable: true
                                         }
