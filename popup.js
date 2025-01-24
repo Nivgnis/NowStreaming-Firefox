@@ -657,6 +657,7 @@ function loadIcon(game) {
         "diabloiii.png",
         "diabloiiireaperofsouls.png",
         "don'tstarve.png",
+        "doom.png",
         "dota2.png",
         "eldenring.png",
         "enterthegungeon.png",
@@ -678,6 +679,7 @@ function loadIcon(game) {
         "inscryption.png",
         "justchatting.png",
         "leagueoflegends.png",
+        "lethalcompany.png",
         "left4dead2.png",
         "lethalleague.png",
         "lifeisfeudalyourown.png",
@@ -714,6 +716,7 @@ function loadIcon(game) {
         "stardewvalley.png",
         "steins;gate.png",
         "steins;gate0.png",
+        "streetfighter6.png",
         "supermario64.png",
         "supermarioworld.png",
         "supersmashbros.melee.png",
@@ -737,10 +740,9 @@ function loadIcon(game) {
 
 	var generatedIcon = game.replace(/\:| /g,'').toLowerCase()+".png";
 
-	if (allowedIcons.includes(generatedIcon))
-		//return "gameicons/"+generatedIcon;
     
-        return "<img src=\"gameicons/" + generatedIcon + "\" title=\"" + game.replace(/\:| /g,'').toLowerCase() + "\" class=\"masterTooltip\" width=\"30\" height=\"30\"/>";
+	if (allowedIcons.includes(generatedIcon))
+        return "<img src=\"gameicons/" + generatedIcon + "\" title=\"" + game + "\" class=\"masterTooltip\" width=\"30\" height=\"30\"/>";
 
 	else
 		return "<span class=\"masterTooltip\" width=\"30\" height=\"30\">" + game.replace(/\:| /g,'').toLowerCase() + "</span>";
