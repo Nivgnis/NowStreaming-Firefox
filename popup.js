@@ -743,14 +743,18 @@ function loadIcon(game) {
         "worldoftanks.png",
         "worldofwarcraft.png"
     ];
+    
+    var YakuzaGames =["yakuzalikeadragon.png","likeadragoninfinitewealth.png"];
 
 	var generatedIcon = game.replace(/\:| /g,'').toLowerCase()+".png";
-
     
 	if (allowedIcons.includes(generatedIcon))
         return "<a href=\"https://www.twitch.tv/directory/category/" + game.toLowerCase().replace("&", "and").replace(/\:|/g,'').replaceAll(" ", "-") + "\"><img src=\"gameicons/" + generatedIcon + "\" title=\"" + game + "\" class=\"masterTooltip\" width=\"30\" height=\"30\"/>";
+    
+    else if (YakuzaGames.includes(generatedIcon))
 
-
+        return "<a href=\"https://www.twitch.tv/directory/category/" + game.toLowerCase().replace("&", "and").replace(/\:|/g,'').replaceAll(" ", "-") + "\"><img src=\"gameicons/yakuzalikeadragon.png\" title=\"" + game + "\" class=\"masterTooltip\" width=\"30\" height=\"30\"/>";
+    
 	else
 		return "<span class=\"masterTooltip\" width=\"30\" height=\"30\">" + game.replace(/\:| /g,'').toLowerCase() + "</span>";
 }
