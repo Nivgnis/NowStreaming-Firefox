@@ -635,6 +635,7 @@ function loadIcon(game) {
 
 	var allowedIcons = [
         "10deaddoves.png",
+        "americantrucksimulator.png",
         "amongus.png",
         "apexlegends.png",
         "archeage.png",
@@ -663,6 +664,7 @@ function loadIcon(game) {
         "enterthegungeon.png",
         "escapefromtarkov.png",
         "evolve.png",
+        "fallout3.png",
         "fieldsofmistria.png",
         "finalfantasyxivonline.png",
         "fortnite.png",
@@ -678,6 +680,7 @@ function loadIcon(game) {
         "infinitynikki.png",
         "inscryption.png",
         "justchatting.png",
+        "kingdomcomedeliverance.png",
         "leagueoflegends.png",
         "lethalcompany.png",
         "left4dead2.png",
@@ -691,13 +694,16 @@ function loadIcon(game) {
         "marvelsnap.png",
         "middle-earthshadowofmordor.png",
         "minecraft.png",
+        "minesweeperonline.png",
         "music.png",
         "newworld.png",
         "nunholy.png",
+        "omori.png",
         "osu!.png",
         "outlast.png",
         "overwatch.png",
         "overwatch2.png",
+        "palworld.png",
         "pathofexile.png",
         "payday2.png",
         "playerunknown'sbattlegrounds.png",
@@ -742,7 +748,8 @@ function loadIcon(game) {
 
     
 	if (allowedIcons.includes(generatedIcon))
-        return "<img src=\"gameicons/" + generatedIcon + "\" title=\"" + game + "\" class=\"masterTooltip\" width=\"30\" height=\"30\"/>";
+        return "<a href=\"https://www.twitch.tv/directory/category/" + game.toLowerCase().replace("&", "and").replace(/\:|/g,'').replaceAll(" ", "-") + "\"><img src=\"gameicons/" + generatedIcon + "\" title=\"" + game + "\" class=\"masterTooltip\" width=\"30\" height=\"30\"/>";
+
 
 	else
 		return "<span class=\"masterTooltip\" width=\"30\" height=\"30\">" + game.replace(/\:| /g,'').toLowerCase() + "</span>";
