@@ -642,9 +642,9 @@ function loadIcon(game) {
         "art.png",
         "asmr.png",
         "balatro.png",
+        "baldur'sgate3.png",
         "battlefield3.png",
         "battlefield4.png",
-        "baldur'sgate3.png",
         "bloodborne.png",
         "callofdutyblackopsii.png",
         "callofdutyghosts.png",
@@ -668,6 +668,7 @@ function loadIcon(game) {
         "fieldsofmistria.png",
         "finalfantasyxivonline.png",
         "fortnite.png",
+        "ftlfasterthanlight.png",
         "games+demos.png",
         "garry'smod.png",
         "grandtheftautov.png",
@@ -682,8 +683,8 @@ function loadIcon(game) {
         "justchatting.png",
         "kingdomcomedeliverance.png",
         "leagueoflegends.png",
-        "lethalcompany.png",
         "left4dead2.png",
+        "lethalcompany.png",
         "lethalleague.png",
         "lifeisfeudalyourown.png",
         "lostark.png",
@@ -706,6 +707,7 @@ function loadIcon(game) {
         "palworld.png",
         "pathofexile.png",
         "payday2.png",
+        "persona5royal.png",
         "playerunknown'sbattlegrounds.png",
         "poker.png",
         "projectzomboid.png",
@@ -723,7 +725,9 @@ function loadIcon(game) {
         "steins;gate.png",
         "steins;gate0.png",
         "streetfighter6.png",
+        "subnautica.png",
         "supermario64.png",
+        "supermariopartyjamboree.png",
         "supermarioworld.png",
         "supersmashbros.melee.png",
         "supersmashbros.ultimate.png",
@@ -744,7 +748,7 @@ function loadIcon(game) {
         "worldofwarcraft.png"
     ];
     
-    var YakuzaGames =["yakuzalikeadragon.png","likeadragoninfinitewealth.png"];
+    var YakuzaGames =["yakuza0.png","yakuza.png","yakuza2.png","yakuza3.png","yakuza4.png","yakuza5.png","yakuza6thesongoflife.png","yakuza3remastered.png","yakuza4remastered.png","yakuza5remastered.png","yakuzakiwami.png","yakuzakiwami2.png","yakuzalikeadragon.png","likeadragoninfinitewealth.png"];
 
 	var generatedIcon = game.replace(/\:| /g,'').toLowerCase()+".png";
     
@@ -752,7 +756,6 @@ function loadIcon(game) {
         return "<a href=\"https://www.twitch.tv/directory/category/" + game.toLowerCase().replace("&", "and").replace(/\:|/g,'').replaceAll(" ", "-") + "\"><img src=\"gameicons/" + generatedIcon + "\" title=\"" + game + "\" class=\"masterTooltip\" width=\"30\" height=\"30\"/>";
     
     else if (YakuzaGames.includes(generatedIcon))
-
         return "<a href=\"https://www.twitch.tv/directory/category/" + game.toLowerCase().replace("&", "and").replace(/\:|/g,'').replaceAll(" ", "-") + "\"><img src=\"gameicons/yakuzalikeadragon.png\" title=\"" + game + "\" class=\"masterTooltip\" width=\"30\" height=\"30\"/>";
     
 	else
