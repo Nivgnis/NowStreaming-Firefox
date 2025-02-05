@@ -509,10 +509,7 @@ function syncWithTwitch(pagination, storage, add){
 	}
 	var user = document.getElementById("syncWithTwitchInput").value;
 	user = user.toLowerCase();
-	if (user == "mlg360noscope420blazeit"){
-		browser.tabs.create({url: "https://youtu.be/kHYZDveT46c"});
-		return;
-	}
+
 	// If user selected 'add' instead of replace, we'll call this function again with his current follows
 	if (storage == null){
 		browser.storage.local.get({streamers:{}, 'notifications':true}, function (result) {
@@ -653,12 +650,18 @@ function loadIcon(game) {
         ["chess","chess.png"],
         ["counter-strikeglobaloffensive","counter-strikeglobaloffensive.png"],
         ["cyberpunk2077","cyberpunk2077.png"],
-        ["darksoulsii","darksoulsii.png"],
+        ["darkestdungeon","darkestdungeon.png"],
+        ["demon'ssouls","darksouls.png"],
+        ["darksouls","darksouls.png"],
+        ["darksoulsremastered","darksouls.png"],
+        ["darksoulsii","darksouls.png"],
         ["dayz","dayz.png"],
         ["deadbydaylight","deadbydaylight.png"],
+        ["deadspace","deadspace.png"],
         ["destiny","destiny.png"],
         ["diabloiii","diabloiii.png"],
         ["diabloiiireaperofsouls","diabloiiireaperofsouls.png"],
+        ["discoelysium","discoelysium.png"],
         ["don'tstarve","don'tstarve.png"],
         ["doom","doom.png"],
         ["dota2","dota2.png"],
@@ -669,6 +672,7 @@ function loadIcon(game) {
         ["fallout3","fallout3.png"],
         ["fear&hunger2termina","fear&hunger2termina.png"],
         ["fieldsofmistria","fieldsofmistria.png"],
+        ["finalfantasyviiremake","finalfantasyviiremake.png"],
         ["finalfantasyxivonline","finalfantasyxivonline.png"],
         ["fortnite","fortnite.png"],
         ["ftlfasterthanlight","ftlfasterthanlight.png"],
@@ -681,6 +685,7 @@ function loadIcon(game) {
         ["h1z1kingofthekill","h1z1.png"],
         ["hades","hades.png"],
         ["hearthstone","hearthstone.png"],
+        ["hellokittyislandadventure","hellokittyislandadventure.png"],
         ["heroesofthestorm","heroesofthestorm.png"],
         ["infinitynikki","infinitynikki.png"],
         ["inscryption","inscryption.png"],
@@ -692,6 +697,7 @@ function loadIcon(game) {
         ["lethalleague","lethalleague.png"],
         ["lifeisfeudalyourown","lifeisfeudalyourown.png"],
         ["lostark","lostark.png"],
+        ["mafiadefinitiveedition","mafia.png"],
         ["magicthegathering","magicthegathering.png"],
         ["mariokart8","mariokart8.png"],
         ["mariokart8deluxe","mariokart8.png"],
@@ -701,6 +707,7 @@ function loadIcon(game) {
         ["minecraft","minecraft.png"],
         ["minesweeperonline","minesweeperonline.png"],
         ["music","music.png"],
+        ["miside","miside.png"],
         ["newworld","newworld.png"],
         ["nunholy","nunholy.png"],
         ["omori","omori.png"],
@@ -714,6 +721,7 @@ function loadIcon(game) {
         ["persona5royal","persona5royal.png"],
         ["playerunknown'sbattlegrounds","playerunknown'sbattlegrounds.png"],
         ["poker","poker.png"],
+        ["pokémonmysterydungeonexplorersofsky","pokemon.png"],
         ["poppyplaytime","poppyplaytime.png"],
         ["projectzomboid","projectzomboid.png"],
         ["retro","retro.png"],
@@ -733,6 +741,7 @@ function loadIcon(game) {
         ["subnautica","subnautica.png"],
         ["supermario64","supermario64.png"],
         ["supermariopartyjamboree","supermariopartyjamboree.png"],
+        ["supermariorpg","supermario64.png"],
         ["supermarioworld","supermarioworld.png"],
         ["supersmashbros.melee","supersmashbros.melee.png"],
         ["supersmashbros.ultimate","supersmashbros.ultimate.png"],
@@ -742,7 +751,11 @@ function loadIcon(game) {
         ["thebindingofisaacrepentance","thebindingofisaac.png"],
         ["theelderscrollsvskyrim","theelderscrollsvskyrim.png"],
         ["theevilwithin","theevilwithin.png"],
-        ["thesims4","thesims4.png"],
+        ["thesims1","thesims.png"],
+        ["thesims2","thesims.png"],
+        ["thesims3","thesims.png"],
+        ["thesims4","thesims.png"],
+        ["thesims5","thesims.png"],
         ["thewalkingdead","thewalkingdead.png"],
         ["valorant","valorant.png"],
         ["voicesofthevoid","voicesofthevoid.png"],
