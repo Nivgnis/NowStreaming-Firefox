@@ -642,12 +642,13 @@ function loadIcon(game) {
         ["callofdutyghosts","callofdutyghosts.png"],
         ["callofdutywarzone","callofdutywarzone.png"],
         ["chess","chess.png"],
+        ["sidmeier'scivilization","civilization.png"],
+        ["sidmeier'scivilizationii","civilization.png"],
+        ["sidmeier'scivilizationiii","civilization.png"],
+        ["sidmeier'scivilizationiv","civilization.png"],
         ["sidmeier'scivilizationv","civilization.png"],
+        ["sidmeier'scivilizationvi","civilization.png"],
         ["sidmeier'scivilizationvii","civilization.png"],
-        ["sidmeier'scivilizationviii","civilization.png"],
-        ["sidmeier'scivilizationviv","civilization.png"],
-        ["sidmeier'scivilizationvv","civilization.png"],
-        ["sidmeier'scivilizationvvi","civilization.png"],
         ["counter-strikeglobaloffensive","counter-strikeglobaloffensive.png"],
         ["cyberpunk2077","cyberpunk2077.png"],
         ["darkestdungeon","darkestdungeon.png"],
@@ -729,6 +730,7 @@ function loadIcon(game) {
         ["retro","retro.png"],
         ["rift","rift.png"],
         ["rocketleague","rocketleague.png"],
+        ["ruinednurse","NOICON"],
         ["runescape","runescape.png"],
         ["rust","rust.png"],
         ["signalis","signalis.png"],
@@ -775,10 +777,17 @@ function loadIcon(game) {
     for (var i = 0; i < allowedIcons.length; i++)
     {
         if(generatedIcon == allowedIcons[i][0])
+        {
+            if(allowedIcons[i][1] == "NOICON")
+            {
+                generatedIcon = generatedIcon.substring(0, 15);
+                break;
+            }
             return "<a href=\"https://www.twitch.tv/directory/category/" + game.toLowerCase().replace("&", "and").replace(/\:|/g,'').replaceAll(" ", "-") + "\"><img src=\"gameicons/" + allowedIcons[i][1] + "\" title=\"" + game + "\" class=\"masterTooltip\" width=\"30\" height=\"30\"/>";
+        }
     }
     
-    return "<span class=\"masterTooltip\" width=\"30\" height=\"30\">" + game.replace(/\:| /g,'').toLowerCase() + "</span>";
+    return "<span class=\"masterTooltip\" width=\"30\" height=\"30\">" + generatedIcon + "</span>";
 
 
 }
