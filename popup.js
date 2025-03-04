@@ -626,7 +626,6 @@ function loadIcon(game) {
 
 	var allowedIcons = [
         ["10deaddoves","10deaddoves.png"],
-        ["agameaboutdiggingahole","NOICON"],
         ["americantrucksimulator","americantrucksimulator.png"],
         ["amongus","amongus.png"],
         ["apexlegends","apexlegends.png"],
@@ -645,13 +644,8 @@ function loadIcon(game) {
         ["chess","chess.png"],
         ["counter-strikeglobaloffensive","counter-strikeglobaloffensive.png"],
         ["cyberpunk2077","cyberpunk2077.png"],
-        ["dandelionwishesbroughttoyou","NOICON"],
         ["danganronpa2goodbyedespair","danganronpa.png"],
         ["darkestdungeon","darkestdungeon.png"],
-        ["darksouls","darksouls.png"],
-        ["darksoulsii","darksouls.png"],
-        ["darksoulsiii","darksouls.png"],
-        ["darksoulsremastered","darksouls.png"],
         ["dayz","dayz.png"],
         ["deadbydaylight","deadbydaylight.png"],
         ["deadlypremonition","deadlypremonition.png"],
@@ -689,6 +683,7 @@ function loadIcon(game) {
         ["hearthstone","hearthstone.png"],
         ["hellokittyislandadventure","hellokittyislandadventure.png"],
         ["heroesofthestorm","heroesofthestorm.png"],
+        ["hollowknight","hollowknight.png"],
         ["i'monlysleeping","i'monlysleeping.png"],
         ["infinitynikki","infinitynikki.png"],
         ["inscryption","inscryption.png"],
@@ -697,12 +692,6 @@ function loadIcon(game) {
         ["justchatting","justchatting.png"],
         ["kingdomcomedeliverance","kingdomcomedeliverance.png"],
         ["kingdomcomedeliveranceii","kingdomcomedeliverance.png"],
-        ["kingdomhearts","kingdomhearts.png"],
-        ["kingdomhearts2","kingdomhearts.png"],
-        ["kingdomhearts3","kingdomhearts.png"],
-        ["kingdomheartshd1.5+2.5remix","kingdomhearts.png"],
-        ["kingdomheartshd1.5remix","kingdomhearts.png"],
-        ["kingdomheartshd2.5remix","kingdomhearts.png"],
         ["leagueoflegends","leagueoflegends.png"],
         ["left4dead2","left4dead2.png"],
         ["lethalcompany","lethalcompany.png"],
@@ -714,6 +703,7 @@ function loadIcon(game) {
         ["lostark","lostark.png"],
         ["mafiadefinitiveedition","mafia.png"],
         ["magicthegathering","magicthegathering.png"],
+        ["marblesonstream","marblesonstream.png"],
         ["mariokart8","mariokart8.png"],
         ["mariokart8deluxe","mariokart8.png"],
         ["marvelrivals","marvelrivals.png"],
@@ -738,6 +728,7 @@ function loadIcon(game) {
         ["persona5royal","persona5royal.png"],
         ["playerunknown'sbattlegrounds","playerunknown'sbattlegrounds.png"],
         ["poker","poker.png"],
+        ["pokémontradingcardgamepocket","pokemontradingcardgame.png"],
         ["pokémonmysterydungeonexplorersofsky","pokemon.png"],
         ["pokémonheartgold/soulsilver","pokemon.png"],
         ["pokémonscarlet/violet","pokemon.png"],
@@ -748,17 +739,9 @@ function loadIcon(game) {
         ["rift","rift.png"],
         ["ringfitadventure","ringfitadventure.png"],
         ["rocketleague","rocketleague.png"],
-        ["ruinednurse","NOICON"],
         ["runescape","runescape.png"],
         ["rust","rust.png"],
         ["science&technology","science&technology.png"],
-        ["sidmeier'scivilization","civilization.png"],
-        ["sidmeier'scivilizationii","civilization.png"],
-        ["sidmeier'scivilizationiii","civilization.png"],
-        ["sidmeier'scivilizationiv","civilization.png"],
-        ["sidmeier'scivilizationv","civilization.png"],
-        ["sidmeier'scivilizationvi","civilization.png"],
-        ["sidmeier'scivilizationvii","civilization.png"],
         ["signalis","signalis.png"],
         ["silenthill","silenthill.png"],
         ["silenthill2","silenthill.png"],
@@ -788,11 +771,7 @@ function loadIcon(game) {
         ["theelderscrollsvskyrim","theelderscrollsvskyrim.png"],
         ["theevilwithin","theevilwithin.png"],
         ["thelegendofzeldaechoesofwisdom","thelegendofzeldaechoesofwisdom.png"],
-        ["thesims1","thesims.png"],
-        ["thesims2","thesims.png"],
-        ["thesims3","thesims.png"],
-        ["thesims4","thesims.png"],
-        ["thesims5","thesims.png"],
+        ["theheadliners","theheadliners.png"],
         ["thewalkingdead","thewalkingdead.png"],
         ["valorant","valorant.png"],
         ["voicesofthevoid","voicesofthevoid.png"],
@@ -801,27 +780,39 @@ function loadIcon(game) {
         ["warhammer40,000spacemarineii","warhammer40,000spacemarineii.png"],
         ["wildstar","wildstar.png"],
         ["worldoftanks","worldoftanks.png"],
-        ["worldofwarcraft","worldofwarcraft.png"],
-        ["yakuzakiwami","yakuza.png"],
-        ["yakuzalikeadragon","yakuza.png"]
+        ["worldofwarcraft","worldofwarcraft.png"]
+    ];
+    
+    var BulkIcons = [
+    ["thesims","thesims.png"],
+    ["sidmeier'scivilization","civilization.png"],
+    ["darksouls","darksouls.png"],
+    ["kingdomhearts","kingdomhearts.png"],
+    ["yakuza","yakuza.png"]
     ];
     
     var generatedIcon = game.replace(/\:| /g,'').toLowerCase();
+    var GameDisplay = "<span class=\"masterTooltip\" width=\"30\" height=\"30\">" + generatedIcon + "</span>";
     
+    for (var i = 0; i < BulkIcons.length; i++)
+    {
+        if(generatedIcon.includes(BulkIcons[i][0]))
+        {
+            GameDisplay = "<a href=\"https://www.twitch.tv/directory/category/" + game.toLowerCase().replace("&", "and").replace(/\:|/g,'').replaceAll(" ", "-") + "\"><img src=\"gameicons/" + BulkIcons[i][1] + "\" title=\"" + game + "\" class=\"masterTooltip\" width=\"30\" height=\"30\"/>";
+            break;
+        }
+    }
+   
     for (var i = 0; i < allowedIcons.length; i++)
     {
         if(generatedIcon == allowedIcons[i][0])
         {
-            if(allowedIcons[i][1] == "NOICON")
-            {
-                generatedIcon = generatedIcon.substring(0, 17);
-                break;
-            }
-            return "<a href=\"https://www.twitch.tv/directory/category/" + game.toLowerCase().replace("&", "and").replace(/\:|/g,'').replaceAll(" ", "-") + "\"><img src=\"gameicons/" + allowedIcons[i][1] + "\" title=\"" + game + "\" class=\"masterTooltip\" width=\"30\" height=\"30\"/>";
+            GameDisplay = "<a href=\"https://www.twitch.tv/directory/category/" + game.toLowerCase().replace("&", "and").replace(/\:|/g,'').replaceAll(" ", "-") + "\"><img src=\"gameicons/" + allowedIcons[i][1] + "\" title=\"" + game + "\" class=\"masterTooltip\" width=\"30\" height=\"30\"/>";
+            break;
         }
     }
     
-    return "<span class=\"masterTooltip\" width=\"30\" height=\"30\">" + generatedIcon + "</span>";
+    return GameDisplay;
 
 
 }
