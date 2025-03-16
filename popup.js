@@ -126,6 +126,9 @@ $(document).ready(function () {
 	$("#submitFastFollow").bind("click", fastFollow);
 
 	$("#versionDiv").append(browser.runtime.getManifest().version);
+    
+    $("#cleanname").bind("click", updateTable);
+	$("#namelength").bind("click", updateTable);
 
 	updateTable();
 	updateTheme();
@@ -641,10 +644,10 @@ function loadIcon(game) {
         ["callofdutyblackopsii","callofdutyblackopsii.png"],
         ["callofdutyghosts","callofdutyghosts.png"],
         ["callofdutywarzone","callofdutywarzone.png"],
+        ["celeste","celeste.png"],
         ["chess","chess.png"],
         ["counter-strikeglobaloffensive","counter-strikeglobaloffensive.png"],
         ["cyberpunk2077","cyberpunk2077.png"],
-        ["danganronpa2goodbyedespair","danganronpa.png"],
         ["darkestdungeon","darkestdungeon.png"],
         ["dayz","dayz.png"],
         ["deadbydaylight","deadbydaylight.png"],
@@ -658,6 +661,7 @@ function loadIcon(game) {
         ["don'tstarve","don'tstarve.png"],
         ["doom","doom.png"],
         ["dota2","dota2.png"],
+        ["dwarffortress","dwarffortress.png"],
         ["eldenring","eldenring.png"],
         ["enterthegungeon","enterthegungeon.png"],
         ["escapefromtarkov","escapefromtarkov.png"],
@@ -729,11 +733,9 @@ function loadIcon(game) {
         ["playerunknown'sbattlegrounds","playerunknown'sbattlegrounds.png"],
         ["poker","poker.png"],
         ["pokémontradingcardgamepocket","pokemontradingcardgame.png"],
-        ["pokémonmysterydungeonexplorersofsky","pokemon.png"],
-        ["pokémonheartgold/soulsilver","pokemon.png"],
-        ["pokémonscarlet/violet","pokemon.png"],
         ["poppyplaytime","poppyplaytime.png"],
         ["projectzomboid","projectzomboid.png"],
+        ["raft","raft.png"],
         ["r.e.p.o.","r.e.p.o..png"],
         ["retro","retro.png"],
         ["rift","rift.png"],
@@ -743,12 +745,11 @@ function loadIcon(game) {
         ["rust","rust.png"],
         ["science&technology","science&technology.png"],
         ["signalis","signalis.png"],
-        ["silenthill","silenthill.png"],
-        ["silenthill2","silenthill.png"],
         ["slaythespire","slaythespire.png"],
         ["smite","smite.png"],
         ["spacestation13","spacestation13.png"],
         ["specialevents","specialevents.png"],
+        ["splitfiction","splitfiction.png"],
         ["starcraftii","starcraftii.png"],
         ["stardewvalley","stardewvalley.png"],
         ["steins;gate","steins;gate.png"],
@@ -756,8 +757,9 @@ function loadIcon(game) {
         ["strangerofparadisefinalfantasyorigin","strangerofparadisefinalfantasyorigin.png"],
         ["streetfighter6","streetfighter6.png"],
         ["subnautica","subnautica.png"],
-        ["supermariobros.3","supermariobros.3.png"],
+        ["superliminal","superliminal.png"],
         ["supermario64","supermario64.png"],
+        ["supermariobros.3","supermariobros.3.png"],
         ["supermariopartyjamboree","supermariopartyjamboree.png"],
         ["supermariorpg","supermario64.png"],
         ["supermarioworld","supermarioworld.png"],
@@ -765,34 +767,55 @@ function loadIcon(game) {
         ["supersmashbros.ultimate","supersmashbros.ultimate.png"],
         ["tabletopsimulator","tabletopsimulator.png"],
         ["teamfighttactics","teamfighttactics.png"],
-        ["thebindingofisaac","thebindingofisaac.png"],
-        ["thebindingofisaacrebirth","thebindingofisaac.png"],
-        ["thebindingofisaacrepentance","thebindingofisaac.png"],
         ["theelderscrollsvskyrim","theelderscrollsvskyrim.png"],
         ["theevilwithin","theevilwithin.png"],
-        ["thelegendofzeldaechoesofwisdom","thelegendofzeldaechoesofwisdom.png"],
         ["theheadliners","theheadliners.png"],
+        ["thelegendofzeldaechoesofwisdom","thelegendofzeldaechoesofwisdom.png"],
+        ["thelongdrive","thelongdrive.png"],
         ["thewalkingdead","thewalkingdead.png"],
         ["valorant","valorant.png"],
         ["voicesofthevoid","voicesofthevoid.png"],
         ["vrchat","vrchat.png"],
         ["warframe","warframe.png"],
         ["warhammer40,000spacemarineii","warhammer40,000spacemarineii.png"],
+        ["webfishing","webfishing.png"],
         ["wildstar","wildstar.png"],
         ["worldoftanks","worldoftanks.png"],
         ["worldofwarcraft","worldofwarcraft.png"]
     ];
     
     var BulkIcons = [
-    ["thesims","thesims.png"],
-    ["sidmeier'scivilization","civilization.png"],
-    ["darksouls","darksouls.png"],
-    ["kingdomhearts","kingdomhearts.png"],
-    ["yakuza","yakuza.png"]
+        ["danganronpa","danganronpa.png"],
+        ["darksouls","darksouls.png"],
+        ["kingdomhearts","kingdomhearts.png"],
+        ["metalgear","metalgear.png"],
+        ["nomoreheroes","nomoreheroes.png"],
+        ["pokémon","pokemon.png"],
+        ["sidmeier'scivilization","civilization.png"],
+        ["silenthill","silenthill.png"],
+        ["southpark","southpark.png"],
+        ["thebindingofisaac","thebindingofisaac.png"],
+        ["thesims","thesims.png"],
+        ["yakuza","yakuza.png"],
+        ["yu-gi-oh","yu-gi-oh.png"]
     ];
     
+
+
+    const numberinput = document.getElementById('namelength');
+    var NameLength = Number(numberinput.value);
+    const namecheck = document.getElementById('cleanname');
+    var CleanName = namecheck.checked;
+    
+
     var generatedIcon = game.replace(/\:| /g,'').toLowerCase();
-    var GameDisplay = "<span class=\"masterTooltip\" width=\"30\" height=\"30\">" + generatedIcon + "</span>";
+    var GameDisplay = "<span class=\"masterTooltip\" width=\"30\" height=\"30\">" + game.substring(0, NameLength) + "</span>";
+    
+    if(CleanName)
+    {
+        GameDisplay = "<span class=\"masterTooltip\" width=\"30\" height=\"30\">" + generatedIcon.substring(0, NameLength) + "</span>";
+    }
+
     
     for (var i = 0; i < BulkIcons.length; i++)
     {
@@ -813,7 +836,6 @@ function loadIcon(game) {
     }
     
     return GameDisplay;
-
 
 }
 
