@@ -76,6 +76,7 @@ $(document).ready(function () {
 				$("#noFollowing").hide();
                 $("#noToken").hide();
 				$("#fastFollowMessage").hide();
+                $("#myop").hide();
 				$("#toggleStreamers").removeClass("selected-tab");
 			}
 		}
@@ -84,6 +85,7 @@ $(document).ready(function () {
 		click: function(){
 			if ($("#streamersDiv").css('display') == 'none'){
 				$("#fastFollow").show();
+                $("#myop").show();
 				$("#toggleStreamers").addClass("selected-tab");
 				$("#optionsDiv").hide();
 				$("#toggleOptions").removeClass("selected-tab");
@@ -153,6 +155,9 @@ function updateTable() {
 		streamersArray = Object.keys(streamersDict).map(function(key) {
 			return [key, streamersDict[key]];
 		});
+        
+
+        
 
 		// Sort functions
 		selectedSort = result.sortMethod['selectedSort'] != null ? result.sortMethod['selectedSort'] : defaultSort;
@@ -203,6 +208,8 @@ function updateTable() {
 		nstreams=0;
 		$("#tableBody").empty();
 		streamers = streamersArray;
+        CleanName = document.getElementById("cleanname").checked;
+        NameLength = document.getElementById('namelength').value;
 		for (var key in streamers){
 			nfollowing++;
 			$("#followingTable").show();
@@ -236,6 +243,7 @@ function updateTable() {
 		// Looping on the array now
 		// This one we want to sort
 		streamers = streamersArray;
+        
 		for (var key in streamers){
 			if (streamers[key][1]["flag"]){
 				nstreams++;
@@ -632,6 +640,7 @@ function loadIcon(game) {
         ["americantrucksimulator","americantrucksimulator.png"],
         ["amongus","amongus.png"],
         ["apexlegends","apexlegends.png"],
+        ["alienisolation","alienisolation.png"],
         ["archeage","archeage.png"],
         ["arknights","arknights.png"],
         ["art","art.png"],
@@ -729,7 +738,9 @@ function loadIcon(game) {
         ["palworld","palworld.png"],
         ["pathofexile","pathofexile.png"],
         ["payday2","payday2.png"],
+        ["persona3reload","persona3reload.png"],
         ["persona5royal","persona5royal.png"],
+        ["phasmophobia","phasmophobia.png"],
         ["playerunknown'sbattlegrounds","playerunknown'sbattlegrounds.png"],
         ["poker","poker.png"],
         ["pokémontradingcardgamepocket","pokemontradingcardgame.png"],
@@ -741,8 +752,8 @@ function loadIcon(game) {
         ["rift","rift.png"],
         ["ringfitadventure","ringfitadventure.png"],
         ["rocketleague","rocketleague.png"],
-        ["runescape","runescape.png"],
         ["rust","rust.png"],
+        ["schedulei","schedulei.png"],
         ["science&technology","science&technology.png"],
         ["signalis","signalis.png"],
         ["slaythespire","slaythespire.png"],
@@ -767,12 +778,15 @@ function loadIcon(game) {
         ["supersmashbros.ultimate","supersmashbros.ultimate.png"],
         ["tabletopsimulator","tabletopsimulator.png"],
         ["teamfighttactics","teamfighttactics.png"],
+        ["theelderscrollsivoblivionremastered","theelderscrollsivoblivionremastered.png"],
         ["theelderscrollsvskyrim","theelderscrollsvskyrim.png"],
         ["theevilwithin","theevilwithin.png"],
         ["theheadliners","theheadliners.png"],
         ["thelegendofzeldaechoesofwisdom","thelegendofzeldaechoesofwisdom.png"],
+        ["thelegendofzeldatwilightprincess","thelegendofzeldatwilightprincess.png"],
         ["thelongdrive","thelongdrive.png"],
         ["thewalkingdead","thewalkingdead.png"],
+        ["ultrakill","ultrakill.png"],
         ["valorant","valorant.png"],
         ["voicesofthevoid","voicesofthevoid.png"],
         ["vrchat","vrchat.png"],
@@ -791,21 +805,20 @@ function loadIcon(game) {
         ["metalgear","metalgear.png"],
         ["nomoreheroes","nomoreheroes.png"],
         ["pokémon","pokemon.png"],
+        ["postal","postal.png"],
+        ["runescape","runescape.png"],
         ["sidmeier'scivilization","civilization.png"],
         ["silenthill","silenthill.png"],
+        ["sonic","sonic.png"],
         ["southpark","southpark.png"],
         ["thebindingofisaac","thebindingofisaac.png"],
         ["thesims","thesims.png"],
         ["yakuza","yakuza.png"],
-        ["yu-gi-oh","yu-gi-oh.png"]
+        ["yu-gi-oh","yu-gi-oh.png"],
+        ["zelda","zelda.png"]
     ];
     
 
-
-    const numberinput = document.getElementById('namelength');
-    var NameLength = Number(numberinput.value);
-    const namecheck = document.getElementById('cleanname');
-    var CleanName = namecheck.checked;
     
 
     var generatedIcon = game.replace(/\:| /g,'').toLowerCase();
