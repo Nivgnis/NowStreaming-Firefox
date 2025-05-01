@@ -35,15 +35,7 @@ function check_notifications(){
 
 function check_cleanname()
 {
-    if(document.getElementById("cleanname").checked)
-    {
-    	browser.storage.local.set({'cleanname': true}, function () {});
-	}
-	else
-    {
-		browser.storage.local.set({'cleanname': false}, function () {});
-	}
-    
+    browser.storage.local.set({'cleanname': document.getElementById("cleanname").checked}, function () {});
 }
 
 function check_namelength()
