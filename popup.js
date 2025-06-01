@@ -155,9 +155,6 @@ function updateTable() {
 		streamersArray = Object.keys(streamersDict).map(function(key) {
 			return [key, streamersDict[key]];
 		});
-        
-
-        
 
 		// Sort functions
 		selectedSort = result.sortMethod['selectedSort'] != null ? result.sortMethod['selectedSort'] : defaultSort;
@@ -243,7 +240,6 @@ function updateTable() {
 		// Looping on the array now
 		// This one we want to sort
 		streamers = streamersArray;
-        
 		for (var key in streamers){
 			if (streamers[key][1]["flag"]){
 				nstreams++;
@@ -655,6 +651,7 @@ function loadIcon(game) {
         ["callofdutywarzone","callofdutywarzone.png"],
         ["celeste","celeste.png"],
         ["chess","chess.png"],
+        ["clairobscurexpedition33","clairobscurexpedition33.png"],
         ["counter-strikeglobaloffensive","counter-strikeglobaloffensive.png"],
         ["cyberpunk2077","cyberpunk2077.png"],
         ["darkestdungeon","darkestdungeon.png"],
@@ -675,11 +672,11 @@ function loadIcon(game) {
         ["enterthegungeon","enterthegungeon.png"],
         ["escapefromtarkov","escapefromtarkov.png"],
         ["evolve","evolve.png"],
-        ["fallout2","fallout3.png"],
-        ["fallout3","fallout3.png"],
         ["fear&hunger2termina","fear&hunger2termina.png"],
         ["fieldsofmistria","fieldsofmistria.png"],
         ["finalfantasyviiremake","finalfantasyviiremake.png"],
+        ["finalfantasyx","finalfantasyx.png"],
+        ["finalfantasyxhdremaster","finalfantasyx.png"],
         ["finalfantasyxivonline","finalfantasyxivonline.png"],
         ["fortnite","fortnite.png"],
         ["ftlfasterthanlight","ftlfasterthanlight.png"],
@@ -750,6 +747,7 @@ function loadIcon(game) {
         ["r.e.p.o.","r.e.p.o..png"],
         ["retro","retro.png"],
         ["rift","rift.png"],
+        ["rimworld","rimworld.png"],
         ["ringfitadventure","ringfitadventure.png"],
         ["rocketleague","rocketleague.png"],
         ["rust","rust.png"],
@@ -778,6 +776,7 @@ function loadIcon(game) {
         ["supersmashbros.ultimate","supersmashbros.ultimate.png"],
         ["tabletopsimulator","tabletopsimulator.png"],
         ["teamfighttactics","teamfighttactics.png"],
+        ["theelderscrollsiiimorrowind","theelderscrollsiiimorrowind.png"],
         ["theelderscrollsivoblivionremastered","theelderscrollsivoblivionremastered.png"],
         ["theelderscrollsvskyrim","theelderscrollsvskyrim.png"],
         ["theevilwithin","theevilwithin.png"],
@@ -801,11 +800,15 @@ function loadIcon(game) {
     var BulkIcons = [
         ["danganronpa","danganronpa.png"],
         ["darksouls","darksouls.png"],
+        ["doom","doomg.png"],
+        ["fallout","fallout.png"],
         ["kingdomhearts","kingdomhearts.png"],
         ["metalgear","metalgear.png"],
         ["nomoreheroes","nomoreheroes.png"],
         ["pokémon","pokemon.png"],
         ["postal","postal.png"],
+        ["portal","portal.png"],
+        ["residentevil","residentevil.png"],
         ["runescape","runescape.png"],
         ["sidmeier'scivilization","civilization.png"],
         ["silenthill","silenthill.png"],
@@ -834,7 +837,7 @@ function loadIcon(game) {
     {
         if(generatedIcon.includes(BulkIcons[i][0]))
         {
-            GameDisplay = "<a href=\"https://www.twitch.tv/directory/category/" + game.toLowerCase().replace("&", "and").replace(/\:|/g,'').replaceAll(" ", "-") + "\"><img src=\"gameicons/" + BulkIcons[i][1] + "\" title=\"" + game + "\" class=\"masterTooltip\" width=\"30\" height=\"30\"/>";
+            GameDisplay = "<a href=\"https://www.twitch.tv/directory/category/" + game.toLowerCase().replace("&", "and").replace(/\.|;| /g, "-").replace(/\:|-$/g,'') + "\"><img src=\"gameicons/" + BulkIcons[i][1] + "\" title=\"" + game + "\" class=\"masterTooltip\" width=\"30\" height=\"30\"/>";
             break;
         }
     }
@@ -843,7 +846,7 @@ function loadIcon(game) {
     {
         if(generatedIcon == allowedIcons[i][0])
         {
-            GameDisplay = "<a href=\"https://www.twitch.tv/directory/category/" + game.toLowerCase().replace("&", "and").replace(/\:|/g,'').replaceAll(" ", "-") + "\"><img src=\"gameicons/" + allowedIcons[i][1] + "\" title=\"" + game + "\" class=\"masterTooltip\" width=\"30\" height=\"30\"/>";
+            GameDisplay = "<a href=\"https://www.twitch.tv/directory/category/" + game.toLowerCase().replace("&", "and").replace(/\.|;| /g, "-").replace(/\:|-$/g,'') + "\"><img src=\"gameicons/" + allowedIcons[i][1] + "\" title=\"" + game + "\" class=\"masterTooltip\" width=\"30\" height=\"30\"/>";
             break;
         }
     }
