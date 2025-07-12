@@ -659,6 +659,7 @@ function loadIcon(game) {
         ["deadbydaylight","deadbydaylight.png"],
         ["deadlypremonition","deadlypremonition.png"],
         ["deadspace","deadspace.png"],
+        ["deltarune","deltarune.png"],
         ["demon'ssouls","darksouls.png"],
         ["destiny","destiny.png"],
         ["diabloiii","diabloiii.png"],
@@ -669,6 +670,7 @@ function loadIcon(game) {
         ["dota2","dota2.png"],
         ["dwarffortress","dwarffortress.png"],
         ["eldenring","eldenring.png"],
+        ["eldenringnightreign","eldenringnightreign.png"],
         ["enterthegungeon","enterthegungeon.png"],
         ["escapefromtarkov","escapefromtarkov.png"],
         ["evolve","evolve.png"],
@@ -794,7 +796,8 @@ function loadIcon(game) {
         ["webfishing","webfishing.png"],
         ["wildstar","wildstar.png"],
         ["worldoftanks","worldoftanks.png"],
-        ["worldofwarcraft","worldofwarcraft.png"]
+        ["worldofwarcraft","worldofwarcraft.png"],
+        ["wutheringwaves","wutheringwaves.png"]
     ];
     
     var BulkIcons = [
@@ -802,7 +805,9 @@ function loadIcon(game) {
         ["darksouls","darksouls.png"],
         ["doom","doomg.png"],
         ["fallout","fallout.png"],
+        ["fivenightsatfreddy's","fivenightsatfreddy's.png"],
         ["kingdomhearts","kingdomhearts.png"],
+        ["mariokart","mariokart.png"],
         ["metalgear","metalgear.png"],
         ["nomoreheroes","nomoreheroes.png"],
         ["pokémon","pokemon.png"],
@@ -818,7 +823,8 @@ function loadIcon(game) {
         ["thesims","thesims.png"],
         ["yakuza","yakuza.png"],
         ["yu-gi-oh","yu-gi-oh.png"],
-        ["zelda","zelda.png"]
+        ["zelda","zelda.png"],
+        ["zeroescape","zeroescape.png"]
     ];
     
 
@@ -837,7 +843,7 @@ function loadIcon(game) {
     {
         if(generatedIcon.includes(BulkIcons[i][0]))
         {
-            GameDisplay = "<a href=\"https://www.twitch.tv/directory/category/" + game.toLowerCase().replace("&", "and").replace(/\.|;| /g, "-").replace(/\:|-$/g,'') + "\"><img src=\"gameicons/" + BulkIcons[i][1] + "\" title=\"" + game + "\" class=\"masterTooltip\" width=\"30\" height=\"30\"/>";
+            GameDisplay = "<a href=\"https://www.twitch.tv/directory/category/" + game.toLowerCase().replace("&", "and").replace(/\.|;| /g, "-").replace(/\:|'|-\+|-$/g,'') + "\"><img src=\"gameicons/" + BulkIcons[i][1] + "\" title=\"" + game + "\" class=\"masterTooltip\" width=\"30\" height=\"30\"/>";
             break;
         }
     }
@@ -846,7 +852,7 @@ function loadIcon(game) {
     {
         if(generatedIcon == allowedIcons[i][0])
         {
-            GameDisplay = "<a href=\"https://www.twitch.tv/directory/category/" + game.toLowerCase().replace("&", "and").replace(/\.|;| /g, "-").replace(/\:|-$/g,'') + "\"><img src=\"gameicons/" + allowedIcons[i][1] + "\" title=\"" + game + "\" class=\"masterTooltip\" width=\"30\" height=\"30\"/>";
+            GameDisplay = "<a href=\"https://www.twitch.tv/directory/category/" + game.toLowerCase().replace("&", "and").replace(/\.|;| /g, "-").replace(/\:|'|-\+|-$/g,'') + "\"><img src=\"gameicons/" + allowedIcons[i][1] + "\" title=\"" + game + "\" class=\"masterTooltip\" width=\"30\" height=\"30\"/>";
             break;
         }
     }
